@@ -1,4 +1,4 @@
-package com.example.tiandilixin.parrten.strategy;
+package com.example.tiandilixin.parrten.strategy.comparedemo;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,6 +8,12 @@ public class Main {
         CompareUtil<User> sort = new CompareUtil<User>();
         //以不同的策略排序
         sort.sort(userArr, new UserCompareWithHigh());
+        for (User user : userArr) {
+            System.out.println(user.toString());
+        }
+
+        //以不同的策略排序
+        sort.sort(userArr, new UserCompareWithAge());
         for (User user : userArr) {
             System.out.println(user.toString());
         }

@@ -1,4 +1,4 @@
-package com.example.tiandilixin.parrten.strategy;
+package com.example.tiandilixin.parrten.strategy.comparedemo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
