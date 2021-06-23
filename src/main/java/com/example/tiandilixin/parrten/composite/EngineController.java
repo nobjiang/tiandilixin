@@ -1,4 +1,4 @@
-package com.example.tiandilixin.parrten.Composite;
+package com.example.tiandilixin.parrten.composite;
 
 import lombok.extern.slf4j.Slf4j;
 
