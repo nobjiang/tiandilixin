@@ -1,4 +1,4 @@
-package com.example.tiandilixin.keyword;
+package com.example.tiandilixin.base.defaultdemo;
 
 public interface DefaultInterface {
    default void say(){

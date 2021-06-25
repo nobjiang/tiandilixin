@@ -1,6 +1,6 @@
-package com.example.tiandilixin.keyword;
+package com.example.tiandilixin.base.defaultdemo;
 
-public class People implements DefaultInterface{
+public class People implements DefaultInterface {
 
     @Override
     public void eat() {
