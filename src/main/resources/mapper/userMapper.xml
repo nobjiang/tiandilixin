@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.tiandilixin.mybatis.UserMapper">
+    <resultMap id="UserMap" type="User2">
+        <!-- id为主键 -->
+        <id column="id" property="id"/>
+        <!-- column是数据库表的列名 , property是对应实体类的属性名 -->
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+
+
+
+
+
+
+    <select id="selectUser" resultType="com.example.tiandilixin.mybatis.User">
+select * from `user`
+ </select>
+
+
+    <insert id="insertBatch" parameterType="com.example.tiandilixin.mybatis.User">
+               INSERT INTO user (id,name,pwd)
+               VALUES
+               <foreach collection ="list" item="user" separator =",">
+                   (#{user.id}, #{user.name}, #{user.pwd})
+               </foreach >
+           </insert>
+
+
+    <select id="getUser" resultType="com.example.tiandilixin.mybatis.User">
+  select * from user where id=#{id};
+ </select>
+
+
+    <select id="selectUserByNP" resultType="com.example.tiandilixin.mybatis.User">
+  select * from user where name=#{username} and pwd=#{pwd}
+ </select>
+
+    <select id="selectUserByNP2" resultType="com.example.tiandilixin.mybatis.User" parameterType="map">
+  select * from user where name=#{a} and pwd=#{b}
+ </select>
+
+    <insert id="addUser" parameterType="com.example.tiandilixin.mybatis.User">
+    insert into user (id,name,pwd) values (#{id},#{name},#{pwd})
+</insert>
+
+    <update id="updateUser" parameterType="com.example.tiandilixin.mybatis.User">
+  update user set name=#{name},pwd=#{pwd} where id = #{id}
+</update>
+
+    <delete id="deleteUser" parameterType="int">
+  delete from user where id = #{id}
+</delete>
+
+    <select id="type1" resultType="com.example.tiandilixin.mybatis.User" parameterType="string" >
+ select * from user where pwd like #{pattren}
+</select>
+    <select id="type2" resultType="com.example.tiandilixin.mybatis.User" parameterType="string" >
+ select * from user where pwd like CONCAT('%',#{pattren},'%')
+</select>
+
+
+        <select id="selectUser2" resultMap="UserMap">
+  select * from user;
+ </select>
+
+    <select id="selectUserLimit" parameterType="map" resultType="user">
+  select * from user limit #{startIndex},#{pageSize}
+</select>
+
+    <select id="selectUserRowB" resultType="user">
+select * from user
+</select>
+
+
+
+
+</mapper>

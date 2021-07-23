@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    username: root
+    password: "!Love521125"
+    url: jdbc:mysql://nj-cynosdbmysql-grp-1rw05o9d.sql.tencentcdb.com:26053/mybatis?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 6
+    host: 47.97.27.239
+    port: 6379
+    password: epoch0909
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.tiandilixin.mybatis  #如果配置了这个选项  resultType就可以省去包名 别名为类名或者类名首字母小写
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #打印日志
+    map-underscore-to-camel-case: true
+
+
+
+
+
+
+
+
+
+
+
